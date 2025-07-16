@@ -35,3 +35,8 @@ GLFWwindow *init_window(int width, int height, const char *title, GLFWmonitor* m
 	glClearColor(.0F, .1F, .1F, 1.0F);
     return win;
 }
+
+void change_color(unsigned int shaderProgram, float r, float g, float b, float a) {
+    int vertexColorLocation = glGetUniformLocation(shaderProgram, "custom_color");
+    glUniform4f(vertexColorLocation, r, g, b, a);
+}

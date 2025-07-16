@@ -25,15 +25,12 @@ int main() {
 
 	while (!glfwWindowShouldClose(win)) {
 		glClear(GL_COLOR_BUFFER_BIT);
-        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
         process_input(win);
 
         glUseProgram(shaderProgram);
-        float timeValue = glfwGetTime();
-        float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
-        int vertexColorLocation = glGetUniformLocation(shaderProgram, "custom_color");
-        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+        change_color(shaderProgram, 1.0, 1.0, 0.0, 1.0);
         glBindVertexArray(VAO);
 
 
