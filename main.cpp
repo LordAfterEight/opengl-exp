@@ -5,6 +5,9 @@
 #include "helpers/helpers.h"
 #include "helpers/shaders.h"
 #include "helpers/objects.h"
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 using namespace std;
 
 const float WINDOW_SCALING = 0.5;
@@ -25,12 +28,11 @@ int main() {
 
 	while (!glfwWindowShouldClose(win)) {
 		glClear(GL_COLOR_BUFFER_BIT);
-        //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        if (wireframe) { glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); }
 
         process_input(win);
 
         glUseProgram(shaderProgram);
-        change_color(shaderProgram, 1.0, 1.0, 0.0, 1.0);
         glBindVertexArray(VAO);
 
 

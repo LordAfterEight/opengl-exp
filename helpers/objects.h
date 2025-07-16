@@ -7,12 +7,12 @@ int build_vertices() {
     // ------------------------------------------------------------------
     float vertices[] = {
         //    POSITION             COLOR
-         0.5f, -0.5f, 0.0f,   1.0f, 0.0f, 0.0f, // bottom right
-        -0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f, // bottom left
-         0.0f,  0.5f, 0.0f,   0.0f, 0.0f, 1.0f  // top
+           0.5f, -0.5f, 0.0f,   1.0f, 0.0f, 0.0f, // bottom right   0
+          -0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f, // bottom left  1
+           0.0f, 0.5f, 0.0f,    0.0f, 0.0f, 1.0f, // top           2
     };
-    unsigned int indices[] = {  // note that we start from 0!
-        0, 1, 2,  // Triangle
+    unsigned int indices[] = {
+        0, 1, 2
     };
     unsigned int VBO, VAO, EBO;
     glGenVertexArrays(1, &VAO);
