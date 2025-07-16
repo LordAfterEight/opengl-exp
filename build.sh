@@ -1,1 +1,1 @@
-g++ main.cpp glad.c -o output -lglfw -lGL -lm -lX11 -lpthread -lXi -lXrandr -ldl
+g++ main.cpp glad.c -o bin/output -lglfw -lGL -lm -lX11 -lpthread -lXi -lXrandr -ldl
