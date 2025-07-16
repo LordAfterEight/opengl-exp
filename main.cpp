@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 #include "include/glad/glad.h"
 #include <GLFW/glfw3.h>
 #include "helpers/helpers.h"
@@ -18,6 +19,9 @@ int main() {
     unsigned int shaderProgram = setup_shaders();
     unsigned int VAO = build_vertices();
 
+    bool wireframe = false;
+
+    int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
 
 	while (!glfwWindowShouldClose(win)) {
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -26,7 +30,13 @@ int main() {
         process_input(win);
 
         glUseProgram(shaderProgram);
+        float timeValue = glfwGetTime();
+        float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
+        int vertexColorLocation = glGetUniformLocation(shaderProgram, "custom_color");
+        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
         glBindVertexArray(VAO);
+
+
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		glfwSwapBuffers(win);
 		glfwPollEvents();

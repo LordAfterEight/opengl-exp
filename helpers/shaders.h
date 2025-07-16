@@ -11,15 +11,19 @@ float vertices[] = {
 const char *vertexShaderSource = 
     "#version 460 core\n"
     "layout (location = 0) in vec3 aPos;\n"
+    "out vec4 vertex_color;\n"
     "void main() {\n"
     "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+    "   vertex_color = vec4(0.5, 0.0, 0.0, 1.0);\n"
     "}\0";
 
 const char *fragmentShaderSource =
     "#version 460 core \n"
     "out vec4 FragColor;\n"
+    "in vec4 vertex_color;\n"
+    "uniform vec4 custom_color;\n"
     "void main() { \n"
-    "   FragColor = vec4(0.2f, 0.5f, 0.5f, 1.0f);"
+    "   FragColor = custom_color;"
     "}\0";
 
 int setup_shaders() {

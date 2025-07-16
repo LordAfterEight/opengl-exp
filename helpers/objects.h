@@ -6,14 +6,22 @@ int build_vertices() {
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
     float vertices[] = {
-         0.5f,  0.5f, 0.0f,  // top right
-         0.5f, -0.5f, 0.0f,  // bottom right
-        -0.5f, -0.5f, 0.0f,  // bottom left
-        -0.5f,  0.5f, 0.0f   // top left 
+         0.5f,  0.5f, 0.0f,  // front top right
+         0.5f, -0.5f, 0.0f,  // front bottom right
+        -0.5f, -0.5f, 0.0f,  // front bottom left
+        -0.5f,  0.5f, 0.0f,  // front top left
+
+         0.5f,  0.5f, 1.0f,  // back top right
+         0.5f, -0.5f, 1.0f,  // back bottom right
+        -0.5f, -0.5f, 1.0f,  // back bottom left
+        -0.5f,  0.5f, 1.0f   // back top left 
     };
     unsigned int indices[] = {  // note that we start from 0!
-        0, 1, 3,  // first Triangle
-        1, 2, 3   // second Triangle
+        0, 1, 3,  // front first Triangle
+        1, 2, 3,  // front second Triangle
+
+        4, 5, 6,  // back first Triangle
+        6, 7, 4,  // back second Triangle
     };
     unsigned int VBO, VAO, EBO;
     glGenVertexArrays(1, &VAO);
